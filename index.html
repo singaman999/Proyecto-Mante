@@ -70,6 +70,22 @@
       background-color: #f9f9f9;
       border-radius: 4px;
     }
+    #contenedor-imagen-flotante {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 350px;
+      background: white;
+      padding: 15px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+      display: none;
+      z-index: 1000;
+    }
+    #imagen-flotante img {
+      max-width: 100%;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 <body>
@@ -77,515 +93,320 @@
     <h1>Guía de Comandos del Sistema de Red</h1>
   </header>
   <main>
+    <!-- Contenedor flotante para imágenes -->
+    <div id="contenedor-imagen-flotante">
+      <span class="cerrar-imagen" onclick="cerrarImagenFlotante()">×</span>
+      <div id="imagen-flotante"></div>
+    </div>
+
     <section class="categoria">
       <h2>1. Comandos Básicos</h2>
       
       <!-- Linux Basic Commands -->
-      <div class="comando" onclick="mostrarImagen('linux-ls')">
+      <button class="comando" onclick="mostrarInfo('linux-ls', 'Linux - ls', 'Muestra el contenido de un directorio', 'ls [opciones] [directorio]', 'ls -l /home/usuario', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+ls')">
         <strong>Linux - ls:</strong> Muestra el contenido de un directorio.
-      </div>
-      <div id="linux-ls" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-ls')">×</span>
-        <h3>Comando ls</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> ls [opciones] [directorio]</p>
-          <p><strong>Ejemplo:</strong> ls -l /home/usuario</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ls" alt="Ejemplo comando ls">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-cd')">
+      <button class="comando" onclick="mostrarInfo('linux-cd', 'Linux - cd', 'Cambia el directorio actual', 'cd [directorio]', 'cd /var/www', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+cd')">
         <strong>Linux - cd:</strong> Cambia el directorio actual.
-      </div>
-      <div id="linux-cd" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-cd')">×</span>
-        <h3>Comando cd</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> cd [directorio]</p>
-          <p><strong>Ejemplo:</strong> cd /var/www</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+cd" alt="Ejemplo comando cd">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-mkdir')">
+      <button class="comando" onclick="mostrarInfo('linux-mkdir', 'Linux - mkdir', 'Crea un nuevo directorio', 'mkdir [opciones] directorio', 'mkdir -p proyecto/backup', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+mkdir')">
         <strong>Linux - mkdir:</strong> Crea un nuevo directorio.
-      </div>
-      <div id="linux-mkdir" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-mkdir')">×</span>
-        <h3>Comando mkdir</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> mkdir [opciones] directorio</p>
-          <p><strong>Ejemplo:</strong> mkdir -p proyecto/backup</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+mkdir" alt="Ejemplo comando mkdir">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-rmdir')">
+      <button class="comando" onclick="mostrarInfo('linux-rmdir', 'Linux - rmdir', 'Elimina un directorio vacío', 'rmdir [opciones] directorio', 'rmdir temp', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+rmdir')">
         <strong>Linux - rmdir:</strong> Elimina un directorio vacío.
-      </div>
-      <div id="linux-rmdir" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-rmdir')">×</span>
-        <h3>Comando rmdir</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> rmdir [opciones] directorio</p>
-          <p><strong>Ejemplo:</strong> rmdir temp</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+rmdir" alt="Ejemplo comando rmdir">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-cp')">
+      <button class="comando" onclick="mostrarInfo('linux-cp', 'Linux - cp', 'Copia archivos', 'cp [opciones] origen destino', 'cp -r carpeta_origen/ carpeta_destino/', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+cp')">
         <strong>Linux - cp:</strong> Copia archivos.
-      </div>
-      <div id="linux-cp" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-cp')">×</span>
-        <h3>Comando cp</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> cp [opciones] origen destino</p>
-          <p><strong>Ejemplo:</strong> cp -r carpeta_origen/ carpeta_destino/</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+cp" alt="Ejemplo comando cp">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-mv')">
+      <button class="comando" onclick="mostrarInfo('linux-mv', 'Linux - mv', 'Mueve archivos', 'mv [opciones] origen destino', 'mv archivo.txt /ruta/destino/', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+mv')">
         <strong>Linux - mv:</strong> Mueve archivos.
-      </div>
-      <div id="linux-mv" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-mv')">×</span>
-        <h3>Comando mv</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> mv [opciones] origen destino</p>
-          <p><strong>Ejemplo:</strong> mv archivo.txt /ruta/destino/</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+mv" alt="Ejemplo comando mv">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-rm')">
+      <button class="comando" onclick="mostrarInfo('linux-rm', 'Linux - rm', 'Elimina archivos', 'rm [opciones] archivo', 'rm -rf directorio/', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+rm')">
         <strong>Linux - rm:</strong> Elimina archivos.
-      </div>
-      <div id="linux-rm" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-rm')">×</span>
-        <h3>Comando rm</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> rm [opciones] archivo</p>
-          <p><strong>Ejemplo:</strong> rm -rf directorio/</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+rm" alt="Ejemplo comando rm">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-touch')">
+      <button class="comando" onclick="mostrarInfo('linux-touch', 'Linux - touch', 'Crea un archivo vacío', 'touch [opciones] archivo', 'touch nuevo_archivo.txt', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+touch')">
         <strong>Linux - touch:</strong> Crea un archivo vacío.
-      </div>
-      <div id="linux-touch" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-touch')">×</span>
-        <h3>Comando touch</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> touch [opciones] archivo</p>
-          <p><strong>Ejemplo:</strong> touch nuevo_archivo.txt</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+touch" alt="Ejemplo comando touch">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-nano')">
+      <button class="comando" onclick="mostrarInfo('linux-nano', 'Linux - nano', 'Abre un editor de texto simple', 'nano [opciones] archivo', 'nano configuracion.conf', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+nano')">
         <strong>Linux - nano:</strong> Abre un editor de texto simple.
-      </div>
-      <div id="linux-nano" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-nano')">×</span>
-        <h3>Comando nano</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> nano [opciones] archivo</p>
-          <p><strong>Ejemplo:</strong> nano configuracion.conf</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+nano" alt="Ejemplo comando nano">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-grep')">
+      <button class="comando" onclick="mostrarInfo('linux-grep', 'Linux - grep', 'Busca una cadena de texto en un archivo', 'grep [opciones] patrón [archivo...]', 'grep -i "error" log.txt', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+grep')">
         <strong>Linux - grep:</strong> Busca una cadena de texto en un archivo.
-      </div>
-      <div id="linux-grep" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-grep')">×</span>
-        <h3>Comando grep</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> grep [opciones] patrón [archivo...]</p>
-          <p><strong>Ejemplo:</strong> grep -i "error" log.txt</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+grep" alt="Ejemplo comando grep">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-sort')">
+      <button class="comando" onclick="mostrarInfo('linux-sort', 'Linux - sort', 'Ordena las líneas de un archivo', 'sort [opciones] [archivo]', 'sort -n archivo.txt', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+sort')">
         <strong>Linux - sort:</strong> Ordena las líneas de un archivo.
-      </div>
-      <div id="linux-sort" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-sort')">×</span>
-        <h3>Comando sort</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> sort [opciones] [archivo]</p>
-          <p><strong>Ejemplo:</strong> sort -n archivo.txt</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+sort" alt="Ejemplo comando sort">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-uniq')">
+      <button class="comando" onclick="mostrarInfo('linux-uniq', 'Linux - uniq', 'Elimina las líneas duplicadas de un archivo', 'uniq [opciones] [entrada [salida]]', 'sort archivo.txt | uniq', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+uniq')">
         <strong>Linux - uniq:</strong> Elimina las líneas duplicadas de un archivo.
-      </div>
-      <div id="linux-uniq" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-uniq')">×</span>
-        <h3>Comando uniq</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> uniq [opciones] [entrada [salida]]</p>
-          <p><strong>Ejemplo:</strong> sort archivo.txt | uniq</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+uniq" alt="Ejemplo comando uniq">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-head')">
+      <button class="comando" onclick="mostrarInfo('linux-head', 'Linux - head', 'Muestra las primeras líneas de un archivo', 'head [opciones] [archivo...]', 'head -n 20 archivo.log', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+head')">
         <strong>Linux - head:</strong> Muestra las primeras líneas de un archivo.
-      </div>
-      <div id="linux-head" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-head')">×</span>
-        <h3>Comando head</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> head [opciones] [archivo...]</p>
-          <p><strong>Ejemplo:</strong> head -n 20 archivo.log</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+head" alt="Ejemplo comando head">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-tail')">
+      <button class="comando" onclick="mostrarInfo('linux-tail', 'Linux - tail', 'Muestra las últimas líneas de un archivo', 'tail [opciones] [archivo]', 'tail -f /var/log/syslog', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+tail')">
         <strong>Linux - tail:</strong> Muestra las últimas líneas de un archivo.
-      </div>
-      <div id="linux-tail" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-tail')">×</span>
-        <h3>Comando tail</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> tail [opciones] [archivo]</p>
-          <p><strong>Ejemplo:</strong> tail -f /var/log/syslog</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+tail" alt="Ejemplo comando tail">
-        </div>
-      </div>
+      </button>
       
       <!-- Windows Basic Commands -->
-      <div class="comando" onclick="mostrarImagen('windows-dir')">
+      <button class="comando" onclick="mostrarInfo('windows-dir', 'Windows - dir', 'Muestra el contenido de un directorio', 'dir [unidad:][ruta][nombre] [/opciones]', 'dir C:\\Windows\\*.exe', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+dir')">
         <strong>Windows - dir:</strong> Muestra el contenido de un directorio.
-      </div>
-      <div id="windows-dir" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-dir')">×</span>
-        <h3>Comando dir</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> dir [unidad:][ruta][nombre] [/opciones]</p>
-          <p><strong>Ejemplo:</strong> dir C:\Windows\*.exe</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+dir" alt="Ejemplo comando dir">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-cd')">
+      <button class="comando" onclick="mostrarInfo('windows-cd', 'Windows - cd', 'Cambia el directorio actual', 'cd [/d] [unidad:][ruta]', 'cd C:\\Program Files', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+cd+Windows')">
         <strong>Windows - cd:</strong> Cambia el directorio actual.
-      </div>
-      <div id="windows-cd" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-cd')">×</span>
-        <h3>Comando cd</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> cd [/d] [unidad:][ruta]</p>
-          <p><strong>Ejemplo:</strong> cd C:\Program Files</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+cd+Windows" alt="Ejemplo comando cd Windows">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-md')">
+      <button class="comando" onclick="mostrarInfo('windows-md', 'Windows - md', 'Crea un nuevo directorio', 'md [unidad:]ruta', 'md "C:\\Nueva Carpeta"', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+md')">
         <strong>Windows - md:</strong> Crea un nuevo directorio.
-      </div>
-      <div id="windows-md" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-md')">×</span>
-        <h3>Comando md</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> md [unidad:]ruta</p>
-          <p><strong>Ejemplo:</strong> md "C:\Nueva Carpeta"</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+md" alt="Ejemplo comando md">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-rd')">
+      <button class="comando" onclick="mostrarInfo('windows-rd', 'Windows - rd', 'Elimina un directorio vacío', 'rd [unidad:]ruta [/s] [/q]', 'rd /s /q "C:\\Carpeta a eliminar"', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+rd')">
         <strong>Windows - rd:</strong> Elimina un directorio vacío.
-      </div>
-      <div id="windows-rd" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-rd')">×</span>
-        <h3>Comando rd</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> rd [unidad:]ruta [/s] [/q]</p>
-          <p><strong>Ejemplo:</strong> rd /s /q "C:\Carpeta a eliminar"</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+rd" alt="Ejemplo comando rd">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-copy')">
+      <button class="comando" onclick="mostrarInfo('windows-copy', 'Windows - copy', 'Copia archivos', 'copy [origen] [destino]', 'copy *.txt C:\\backup\\', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+copy')">
         <strong>Windows - copy:</strong> Copia archivos.
-      </div>
-      <div id="windows-copy" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-copy')">×</span>
-        <h3>Comando copy</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> copy [origen] [destino]</p>
-          <p><strong>Ejemplo:</strong> copy *.txt C:\backup\</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+copy" alt="Ejemplo comando copy">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-move')">
+      <button class="comando" onclick="mostrarInfo('windows-move', 'Windows - move', 'Mueve archivos', 'move [origen] [destino]', 'move archivo.txt C:\\destino\\', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+move')">
         <strong>Windows - move:</strong> Mueve archivos.
-      </div>
-      <div id="windows-move" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-move')">×</span>
-        <h3>Comando move</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> move [origen] [destino]</p>
-          <p><strong>Ejemplo:</strong> move archivo.txt C:\destino\</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+move" alt="Ejemplo comando move">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-del')">
+      <button class="comando" onclick="mostrarInfo('windows-del', 'Windows - del', 'Elimina archivos', 'del [nombre]', 'del *.tmp /s /q', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+del')">
         <strong>Windows - del:</strong> Elimina archivos.
-      </div>
-      <div id="windows-del" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-del')">×</span>
-        <h3>Comando del</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> del [nombre]</p>
-          <p><strong>Ejemplo:</strong> del *.tmp /s /q</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+del" alt="Ejemplo comando del">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-type')">
+      <button class="comando" onclick="mostrarInfo('windows-type', 'Windows - type', 'Muestra el contenido de un archivo', 'type [archivo]', 'type config.ini', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+type')">
         <strong>Windows - type:</strong> Muestra el contenido de un archivo.
-      </div>
-      <div id="windows-type" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-type')">×</span>
-        <h3>Comando type</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> type [archivo]</p>
-          <p><strong>Ejemplo:</strong> type config.ini</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+type" alt="Ejemplo comando type">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-edit')">
+      <button class="comando" onclick="mostrarInfo('windows-edit', 'Windows - edit', 'Abre un editor de texto simple', 'edit [archivo]', 'edit script.bat', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+edit')">
         <strong>Windows - edit:</strong> Abre un editor de texto simple.
-      </div>
-      <div id="windows-edit" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-edit')">×</span>
-        <h3>Comando edit</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> edit [archivo]</p>
-          <p><strong>Ejemplo:</strong> edit script.bat</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+edit" alt="Ejemplo comando edit">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-findstr')">
+      <button class="comando" onclick="mostrarInfo('windows-findstr', 'Windows - findstr', 'Busca una cadena de texto en un archivo', 'findstr [opciones] cadena [archivo...]', 'findstr "error" *.log', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+findstr')">
         <strong>Windows - findstr:</strong> Busca una cadena de texto en un archivo.
-      </div>
-      <div id="windows-findstr" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-findstr')">×</span>
-        <h3>Comando findstr</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> findstr [opciones] cadena [archivo...]</p>
-          <p><strong>Ejemplo:</strong> findstr "error" *.log</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+findstr" alt="Ejemplo comando findstr">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-sort')">
+      <button class="comando" onclick="mostrarInfo('windows-sort', 'Windows - sort', 'Ordena las líneas de un archivo', 'sort [opciones] [archivo]', 'sort /r datos.txt', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+sort+Windows')">
         <strong>Windows - sort:</strong> Ordena las líneas de un archivo.
-      </div>
-      <div id="windows-sort" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-sort')">×</span>
-        <h3>Comando sort</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> sort [opciones] [archivo]</p>
-          <p><strong>Ejemplo:</strong> sort /r datos.txt</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+sort+Windows" alt="Ejemplo comando sort Windows">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-more')">
+      <button class="comando" onclick="mostrarInfo('windows-more', 'Windows - more', 'Muestra el contenido de un archivo de forma paginada', 'more [archivo]', 'more largo.txt', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+more')">
         <strong>Windows - more:</strong> Muestra el contenido de un archivo de forma paginada.
-      </div>
-      <div id="windows-more" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-more')">×</span>
-        <h3>Comando more</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> more [archivo]</p>
-          <p><strong>Ejemplo:</strong> more largo.txt</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+more" alt="Ejemplo comando more">
-        </div>
-      </div>
+      </button>
     </section>
 
     <section class="categoria">
       <h2>2. Comandos de Administración de Redes</h2>
       
       <!-- Linux Network Commands -->
-      <div class="comando" onclick="mostrarImagen('linux-ifconfig')">
+      <button class="comando" onclick="mostrarInfo('linux-ifconfig', 'Linux - ifconfig', 'Muestra la configuración de la interfaz de red', 'ifconfig [interfaz] [opciones]', 'ifconfig eth0', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+ifconfig')">
         <strong>Linux - ifconfig:</strong> Muestra la configuración de la interfaz de red.
-      </div>
-      <div id="linux-ifconfig" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-ifconfig')">×</span>
-        <h3>Comando ifconfig</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> ifconfig [interfaz] [opciones]</p>
-          <p><strong>Ejemplo:</strong> ifconfig eth0</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ifconfig" alt="Ejemplo comando ifconfig">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-route')">
+      <button class="comando" onclick="mostrarInfo('linux-route', 'Linux - route', 'Muestra la tabla de enrutamiento', 'route [opciones]', 'route -n', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+route')">
         <strong>Linux - route:</strong> Muestra la tabla de enrutamiento.
-      </div>
-      <div id="linux-route" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-route')">×</span>
-        <h3>Comando route</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> route [opciones]</p>
-          <p><strong>Ejemplo:</strong> route -n</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+route" alt="Ejemplo comando route">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-ping')">
+      <button class="comando" onclick="mostrarInfo('linux-ping', 'Linux - ping', 'Comprueba la conectividad a un host específico', 'ping [opciones] destino', 'ping -c 4 google.com', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+ping')">
         <strong>Linux - ping:</strong> Comprueba la conectividad a un host específico.
-      </div>
-      <div id="linux-ping" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-ping')">×</span>
-        <h3>Comando ping</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> ping [opciones] destino</p>
-          <p><strong>Ejemplo:</strong> ping -c 4 google.com</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ping" alt="Ejemplo comando ping">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-traceroute')">
+      <button class="comando" onclick="mostrarInfo('linux-traceroute', 'Linux - traceroute', 'Muestra la ruta que toma un paquete de red para llegar a un host específico', 'traceroute [opciones] host', 'traceroute example.com', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+traceroute')">
         <strong>Linux - traceroute:</strong> Muestra la ruta que toma un paquete de red para llegar a un host específico.
-      </div>
-      <div id="linux-traceroute" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-traceroute')">×</span>
-        <h3>Comando traceroute</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> traceroute [opciones] host</p>
-          <p><strong>Ejemplo:</strong> traceroute example.com</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+traceroute" alt="Ejemplo comando traceroute">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-nslookup')">
+      <button class="comando" onclick="mostrarInfo('linux-nslookup', 'Linux - nslookup', 'Resuelve nombres de dominio a direcciones IP y viceversa', 'nslookup [opciones] [nombre] [servidor]', 'nslookup google.com', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+nslookup')">
         <strong>Linux - nslookup:</strong> Resuelve nombres de dominio a direcciones IP y viceversa.
-      </div>
-      <div id="linux-nslookup" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-nslookup')">×</span>
-        <h3>Comando nslookup</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> nslookup [opciones] [nombre] [servidor]</p>
-          <p><strong>Ejemplo:</strong> nslookup google.com</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+nslookup" alt="Ejemplo comando nslookup">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('linux-iptables')">
+      <button class="comando" onclick="mostrarInfo('linux-iptables', 'Linux - iptables', 'Configura un firewall', 'iptables [opciones] comando [cadenas] [parámetros]', 'iptables -A INPUT -p tcp --dport 22 -j ACCEPT', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+iptables')">
         <strong>Linux - iptables:</strong> Configura un firewall.
-      </div>
-      <div id="linux-iptables" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('linux-iptables')">×</span>
-        <h3>Comando iptables</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> iptables [opciones] comando [cadenas] [parámetros]</p>
-          <p><strong>Ejemplo:</strong> iptables -A INPUT -p tcp --dport 22 -j ACCEPT</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+iptables" alt="Ejemplo comando iptables">
-        </div>
-      </div>
+      </button>
       
       <!-- Windows Network Commands -->
-      <div class="comando" onclick="mostrarImagen('windows-ipconfig')">
+      <button class="comando" onclick="mostrarInfo('windows-ipconfig', 'Windows - ipconfig', 'Muestra la configuración de la interfaz de red', 'ipconfig [opciones]', 'ipconfig /all', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+ipconfig')">
         <strong>Windows - ipconfig:</strong> Muestra la configuración de la interfaz de red.
-      </div>
-      <div id="windows-ipconfig" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-ipconfig')">×</span>
-        <h3>Comando ipconfig</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> ipconfig [opciones]</p>
-          <p><strong>Ejemplo:</strong> ipconfig /all</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ipconfig" alt="Ejemplo comando ipconfig">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-netstat')">
+      <button class="comando" onclick="mostrarInfo('windows-netstat', 'Windows - netstat', 'Muestra información sobre las conexiones de red activas', 'netstat [opciones]', 'netstat -ano', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+netstat')">
         <strong>Windows - netstat:</strong> Muestra información sobre las conexiones de red activas.
-      </div>
-      <div id="windows-netstat" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-netstat')">×</span>
-        <h3>Comando netstat</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> netstat [opciones]</p>
-          <p><strong>Ejemplo:</strong> netstat -ano</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+netstat" alt="Ejemplo comando netstat">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-ping')">
+      <button class="comando" onclick="mostrarInfo('windows-ping', 'Windows - ping', 'Comprueba la conectividad a un host específico', 'ping [opciones] destino', 'ping -t google.com', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+ping+Windows')">
         <strong>Windows - ping:</strong> Comprueba la conectividad a un host específico.
-      </div>
-      <div id="windows-ping" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-ping')">×</span>
-        <h3>Comando ping</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> ping [opciones] destino</p>
-          <p><strong>Ejemplo:</strong> ping -t google.com</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ping+Windows" alt="Ejemplo comando ping Windows">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-tracert')">
+      <button class="comando" onclick="mostrarInfo('windows-tracert', 'Windows - tracert', 'Muestra la ruta que toma un paquete de red para llegar a un host específico', 'tracert [opciones] destino', 'tracert example.com', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+tracert')">
         <strong>Windows - tracert:</strong> Muestra la ruta que toma un paquete de red para llegar a un host específico.
-      </div>
-      <div id="windows-tracert" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-tracert')">×</span>
-        <h3>Comando tracert</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> tracert [opciones] destino</p>
-          <p><strong>Ejemplo:</strong> tracert example.com</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+tracert" alt="Ejemplo comando tracert">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-nslookup')">
+      <button class="comando" onclick="mostrarInfo('windows-nslookup', 'Windows - nslookup', 'Resuelve nombres de dominio a direcciones IP y viceversa', 'nslookup [nombre] [servidor]', 'nslookup google.com 8.8.8.8', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+nslookup+Windows')">
         <strong>Windows - nslookup:</strong> Resuelve nombres de dominio a direcciones IP y viceversa.
-      </div>
-      <div id="windows-nslookup" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-nslookup')">×</span>
-        <h3>Comando nslookup</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> nslookup [nombre] [servidor]</p>
-          <p><strong>Ejemplo:</strong> nslookup google.com 8.8.8.8</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+nslookup+Windows" alt="Ejemplo comando nslookup Windows">
-        </div>
-      </div>
+      </button>
       
-      <div class="comando" onclick="mostrarImagen('windows-netsh')">
+      <button class="comando" onclick="mostrarInfo('windows-netsh', 'Windows - netsh', 'Configura un firewall', 'netsh [contexto] [subcomando] [parámetros]', 'netsh advfirewall set allprofiles state on', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+netsh')">
         <strong>Windows - netsh:</strong> Configura un firewall.
-      </div>
-      <div id="windows-netsh" class="imagen-comando">
-        <span class="cerrar-imagen" onclick="cerrarImagen('windows-netsh')">×</span>
-        <h3>Comando netsh</h3>
-        <div class="comando-info">
-          <p><strong>Uso:</strong> netsh [contexto] [subcomando] [parámetros]</p>
-          <p><strong>Ejemplo:</strong> netsh advfirewall set allprofiles state on</p>
-          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+netsh" alt="Ejemplo comando netsh">
-        </div>
-      </div>
+      </button>
     </section>
 
     <section class="categoria">
       <h2>3. Comandos de Diagnóstico</h2>
       
       <!-- Linux Diagnostic Commands -->
-      <div class="comando" onclick="mostrarImagen('linux-dmesg')">
-        <strong>Linux - dmes
+      <button class="comando" onclick="mostrarInfo('linux-dmesg', 'Linux - dmesg', 'Muestra los mensajes del kernel', 'dmesg [opciones]', 'dmesg | grep error', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+dmesg')">
+        <strong>Linux - dmesg:</strong> Muestra los mensajes del kernel.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-top', 'Linux - top', 'Muestra los procesos que se están ejecutando y su uso de recursos', 'top [opciones]', 'top -u usuario', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+top')">
+        <strong>Linux - top:</strong> Muestra los procesos que se están ejecutando y su uso de recursos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-ps', 'Linux - ps', 'Muestra información sobre los procesos que se están ejecutando', 'ps [opciones]', 'ps aux | grep proceso', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+ps')">
+        <strong>Linux - ps:</strong> Muestra información sobre los procesos que se están ejecutando.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-free', 'Linux - free', 'Muestra la memoria libre y utilizada', 'free [opciones]', 'free -h', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+free')">
+        <strong>Linux - free:</strong> Muestra la memoria libre y utilizada.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-df', 'Linux - df', 'Muestra el espacio libre en disco', 'df [opciones]', 'df -h', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+df')">
+        <strong>Linux - df:</strong> Muestra el espacio libre en disco.
+      </button>
+      
+      <!-- Windows Diagnostic Commands -->
+      <button class="comando" onclick="mostrarInfo('windows-eventvwr', 'Windows - eventvwr', 'Muestra el Visor de eventos', 'eventvwr', 'eventvwr', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+eventvwr')">
+        <strong>Windows - eventvwr:</strong> Muestra el Visor de eventos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-taskmgr', 'Windows - taskmgr', 'Muestra el Administrador de tareas', 'taskmgr', 'taskmgr', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+taskmgr')">
+        <strong>Windows - taskmgr:</strong> Muestra el Administrador de tareas.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-perfmon', 'Windows - perfmon', 'Muestra el Monitor de rendimiento', 'perfmon', 'perfmon /res', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+perfmon')">
+        <strong>Windows - perfmon:</strong> Muestra el Monitor de rendimiento.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-msinfo32', 'Windows - msinfo32', 'Muestra información del sistema', 'msinfo32', 'msinfo32', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+msinfo32')">
+        <strong>Windows - msinfo32:</strong> Muestra información del sistema.
+      </button>
+    </section>
+
+    <section class="categoria">
+      <h2>4. Comandos de Gestión de Archivos</h2>
+      
+      <!-- Linux File Management Commands -->
+      <button class="comando" onclick="mostrarInfo('linux-ls2', 'Linux - ls', 'Muestra el contenido de un directorio', 'ls [opciones] [directorio]', 'ls -l /home/usuario', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+ls')">
+        <strong>Linux - ls:</strong> Muestra el contenido de un directorio.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-cd2', 'Linux - cd', 'Cambia el directorio actual', 'cd [directorio]', 'cd /var/www', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+cd')">
+        <strong>Linux - cd:</strong> Cambia el directorio actual.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-mkdir2', 'Linux - mkdir', 'Crea un nuevo directorio', 'mkdir [opciones] directorio', 'mkdir -p proyecto/backup', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+mkdir')">
+        <strong>Linux - mkdir:</strong> Crea un nuevo directorio.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-rmdir2', 'Linux - rmdir', 'Elimina un directorio vacío', 'rmdir [opciones] directorio', 'rmdir temp', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+rmdir')">
+        <strong>Linux - rmdir:</strong> Elimina un directorio vacío.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-cp2', 'Linux - cp', 'Copia archivos', 'cp [opciones] origen destino', 'cp -r carpeta_origen/ carpeta_destino/', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+cp')">
+        <strong>Linux - cp:</strong> Copia archivos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-mv2', 'Linux - mv', 'Mueve archivos', 'mv [opciones] origen destino', 'mv archivo.txt /ruta/destino/', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+mv')">
+        <strong>Linux - mv:</strong> Mueve archivos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-rm2', 'Linux - rm', 'Elimina archivos', 'rm [opciones] archivo', 'rm -rf directorio/', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+rm')">
+        <strong>Linux - rm:</strong> Elimina archivos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-touch2', 'Linux - touch', 'Crea un archivo vacío', 'touch [opciones] archivo', 'touch nuevo_archivo.txt', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+touch')">
+        <strong>Linux - touch:</strong> Crea un archivo vacío.
+      </button>
+      
+      <!-- Windows File Management Commands -->
+      <button class="comando" onclick="mostrarInfo('windows-dir2', 'Windows - dir', 'Muestra el contenido de un directorio', 'dir [unidad:][ruta][nombre] [/opciones]', 'dir C:\\Windows\\*.exe', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+dir')">
+        <strong>Windows - dir:</strong> Muestra el contenido de un directorio.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-cd2', 'Windows - cd', 'Cambia el directorio actual', 'cd [/d] [unidad:][ruta]', 'cd C:\\Program Files', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+cd+Windows')">
+        <strong>Windows - cd:</strong> Cambia el directorio actual.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-md2', 'Windows - md', 'Crea un nuevo directorio', 'md [unidad:]ruta', 'md "C:\\Nueva Carpeta"', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+md')">
+        <strong>Windows - md:</strong> Crea un nuevo directorio.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-rd2', 'Windows - rd', 'Elimina un directorio vacío', 'rd [unidad:]ruta [/s] [/q]', 'rd /s /q "C:\\Carpeta a eliminar"', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+rd')">
+        <strong>Windows - rd:</strong> Elimina un directorio vacío.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-copy2', 'Windows - copy', 'Copia archivos', 'copy [origen] [destino]', 'copy *.txt C:\\backup\\', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+copy')">
+        <strong>Windows - copy:</strong> Copia archivos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-move2', 'Windows - move', 'Mueve archivos', 'move [origen] [destino]', 'move archivo.txt C:\\destino\\', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+move')">
+        <strong>Windows - move:</strong> Mueve archivos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-del2', 'Windows - del', 'Elimina archivos', 'del [nombre]', 'del *.tmp /s /q', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+del')">
+        <strong>Windows - del:</strong> Elimina archivos.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-type2', 'Windows - type', 'Muestra el contenido de un archivo', 'type [archivo]', 'type config.ini', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+type')">
+        <strong>Windows - type:</strong> Muestra el contenido de un archivo.
+      </button>
+    </section>
+
+    <section class="categoria">
+      <h2>5. Comandos de Administración de Usuarios y Grupos</h2>
+      
+      <!-- Linux User/Group Commands -->
+      <button class="comando" onclick="mostrarInfo('linux-useradd', 'Linux - useradd', 'Crea un nuevo usuario', 'useradd [opciones] nombre_usuario', 'useradd -m -s /bin/bash nuevo_usuario', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+useradd')">
+        <strong>Linux - useradd:</strong> Crea un nuevo usuario.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-usermod', 'Linux - usermod', 'Modifica un usuario existente', 'usermod [opciones] nombre_usuario', 'usermod -aG sudo usuario', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+usermod')">
+        <strong>Linux - usermod:</strong> Modifica un usuario existente.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-userdel', 'Linux - userdel', 'Elimina un usuario', 'userdel [opciones] nombre_usuario', 'userdel -r usuario_eliminar', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+userdel')">
+        <strong>Linux - userdel:</strong> Elimina un usuario.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-groupadd', 'Linux - groupadd', 'Crea un nuevo grupo', 'groupadd [opciones] nombre_grupo', 'groupadd desarrolladores', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+groupadd')">
+        <strong>Linux - groupadd:</strong> Crea un nuevo grupo.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-groupmod', 'Linux - groupmod', 'Modifica un grupo existente', 'groupmod [opciones] nombre_grupo', 'groupmod -n nuevos_desarrolladores desarrolladores', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+groupmod')">
+        <strong>Linux - groupmod:</strong> Modifica un grupo existente.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('linux-groupdel', 'Linux - groupdel', 'Elimina un grupo', 'groupdel nombre_grupo', 'groupdel grupo_eliminar', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+groupdel')">
+        <strong>Linux - groupdel:</strong> Elimina un grupo.
+      </button>
+      
+      <!-- Windows User/Group Commands -->
+      <button class="comando" onclick="mostrarInfo('windows-net-user', 'Windows - net user', 'Crea, modifica y elimina usuarios', 'net user [nombre_usuario [contraseña | *] [opciones]] [/domain]', 'net user nuevo_usuario Contraseña123 /add', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+net+user')">
+        <strong>Windows - net user:</strong> Crea, modifica y elimina usuarios.
+      </button>
+      
+      <button class="comando" onclick="mostrarInfo('windows-net-localgroup', 'Windows - net localgroup', 'Crea, modifica y elimina grupos locales', 'net localgroup [nombre_grupo [nombre_usuario [...]] [/add | /delete]]', 'net localgroup Administradores nuevo_usuario /add', 'https://via.placeholder.com/600x300?text=Ejemplo+comando+net+localgroup')">
+        <strong>Windows - net localgroup:</strong
