@@ -31,6 +31,7 @@
       margin-bottom: 10px;
       padding: 10px;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
     .comando:hover {
       background-color: #f0f0f0;
@@ -51,23 +52,23 @@
       max-width: 100%;
       display: block;
       margin: 10px auto;
+      border: 1px solid #eee;
     }
     .cerrar-imagen {
       float: right;
       cursor: pointer;
       font-weight: bold;
+      font-size: 1.2em;
+      padding: 0 5px;
     }
-    /* Estilo para el contenedor de imágenes flotante */
-    #contenedor-imagen-flotante {
-      position: fixed;
-      top: 100px;
-      right: 20px;
-      width: 300px;
-      background: white;
+    .cerrar-imagen:hover {
+      color: #d00;
+    }
+    .comando-info {
+      margin-top: 10px;
       padding: 10px;
-      border: 1px solid #ccc;
-      box-shadow: 0 0 10px rgba(0,0,0,0.2);
-      display: none;
+      background-color: #f9f9f9;
+      border-radius: 4px;
     }
   </style>
 </head>
@@ -76,96 +77,515 @@
     <h1>Guía de Comandos del Sistema de Red</h1>
   </header>
   <main>
-    <!-- Contenedor para imágenes flotantes -->
-    <div id="contenedor-imagen-flotante">
-      <span class="cerrar-imagen" onclick="cerrarImagenFlotante()">×</span>
-      <div id="imagen-flotante"></div>
-    </div>
-
     <section class="categoria">
       <h2>1. Comandos Básicos</h2>
-      <div class="comando" onclick="mostrarImagen('linux-ls', 'Linux - ls: Muestra el contenido de un directorio.')">
+      
+      <!-- Linux Basic Commands -->
+      <div class="comando" onclick="mostrarImagen('linux-ls')">
         <strong>Linux - ls:</strong> Muestra el contenido de un directorio.
       </div>
-      <div class="comando" onclick="mostrarImagen('linux-cd', 'Linux - cd: Cambia el directorio actual.')">
-        <strong>Linux - cd:</strong> Cambia el directorio actual.
-      </div>
-      <!-- Continuar con los demás comandos de la misma manera -->
-      
-      <!-- Ejemplo de sección de imagen (oculta inicialmente) -->
       <div id="linux-ls" class="imagen-comando">
         <span class="cerrar-imagen" onclick="cerrarImagen('linux-ls')">×</span>
-        <h3>Linux - ls</h3>
-        <p>Ejemplo de uso del comando ls:</p>
-        <img src="https://via.placeholder.com/600x400?text=Ejemplo+comando+ls" alt="Ejemplo comando ls">
-        <p>Este comando muestra el contenido del directorio actual.</p>
+        <h3>Comando ls</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> ls [opciones] [directorio]</p>
+          <p><strong>Ejemplo:</strong> ls -l /home/usuario</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ls" alt="Ejemplo comando ls">
+        </div>
       </div>
       
+      <div class="comando" onclick="mostrarImagen('linux-cd')">
+        <strong>Linux - cd:</strong> Cambia el directorio actual.
+      </div>
       <div id="linux-cd" class="imagen-comando">
         <span class="cerrar-imagen" onclick="cerrarImagen('linux-cd')">×</span>
-        <h3>Linux - cd</h3>
-        <p>Ejemplo de uso del comando cd:</p>
-        <img src="https://via.placeholder.com/600x400?text=Ejemplo+comando+cd" alt="Ejemplo comando cd">
-        <p>Este comando cambia el directorio actual.</p>
+        <h3>Comando cd</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> cd [directorio]</p>
+          <p><strong>Ejemplo:</strong> cd /var/www</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+cd" alt="Ejemplo comando cd">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-mkdir')">
+        <strong>Linux - mkdir:</strong> Crea un nuevo directorio.
+      </div>
+      <div id="linux-mkdir" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-mkdir')">×</span>
+        <h3>Comando mkdir</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> mkdir [opciones] directorio</p>
+          <p><strong>Ejemplo:</strong> mkdir -p proyecto/backup</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+mkdir" alt="Ejemplo comando mkdir">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-rmdir')">
+        <strong>Linux - rmdir:</strong> Elimina un directorio vacío.
+      </div>
+      <div id="linux-rmdir" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-rmdir')">×</span>
+        <h3>Comando rmdir</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> rmdir [opciones] directorio</p>
+          <p><strong>Ejemplo:</strong> rmdir temp</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+rmdir" alt="Ejemplo comando rmdir">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-cp')">
+        <strong>Linux - cp:</strong> Copia archivos.
+      </div>
+      <div id="linux-cp" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-cp')">×</span>
+        <h3>Comando cp</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> cp [opciones] origen destino</p>
+          <p><strong>Ejemplo:</strong> cp -r carpeta_origen/ carpeta_destino/</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+cp" alt="Ejemplo comando cp">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-mv')">
+        <strong>Linux - mv:</strong> Mueve archivos.
+      </div>
+      <div id="linux-mv" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-mv')">×</span>
+        <h3>Comando mv</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> mv [opciones] origen destino</p>
+          <p><strong>Ejemplo:</strong> mv archivo.txt /ruta/destino/</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+mv" alt="Ejemplo comando mv">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-rm')">
+        <strong>Linux - rm:</strong> Elimina archivos.
+      </div>
+      <div id="linux-rm" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-rm')">×</span>
+        <h3>Comando rm</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> rm [opciones] archivo</p>
+          <p><strong>Ejemplo:</strong> rm -rf directorio/</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+rm" alt="Ejemplo comando rm">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-touch')">
+        <strong>Linux - touch:</strong> Crea un archivo vacío.
+      </div>
+      <div id="linux-touch" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-touch')">×</span>
+        <h3>Comando touch</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> touch [opciones] archivo</p>
+          <p><strong>Ejemplo:</strong> touch nuevo_archivo.txt</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+touch" alt="Ejemplo comando touch">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-nano')">
+        <strong>Linux - nano:</strong> Abre un editor de texto simple.
+      </div>
+      <div id="linux-nano" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-nano')">×</span>
+        <h3>Comando nano</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> nano [opciones] archivo</p>
+          <p><strong>Ejemplo:</strong> nano configuracion.conf</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+nano" alt="Ejemplo comando nano">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-grep')">
+        <strong>Linux - grep:</strong> Busca una cadena de texto en un archivo.
+      </div>
+      <div id="linux-grep" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-grep')">×</span>
+        <h3>Comando grep</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> grep [opciones] patrón [archivo...]</p>
+          <p><strong>Ejemplo:</strong> grep -i "error" log.txt</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+grep" alt="Ejemplo comando grep">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-sort')">
+        <strong>Linux - sort:</strong> Ordena las líneas de un archivo.
+      </div>
+      <div id="linux-sort" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-sort')">×</span>
+        <h3>Comando sort</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> sort [opciones] [archivo]</p>
+          <p><strong>Ejemplo:</strong> sort -n archivo.txt</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+sort" alt="Ejemplo comando sort">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-uniq')">
+        <strong>Linux - uniq:</strong> Elimina las líneas duplicadas de un archivo.
+      </div>
+      <div id="linux-uniq" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-uniq')">×</span>
+        <h3>Comando uniq</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> uniq [opciones] [entrada [salida]]</p>
+          <p><strong>Ejemplo:</strong> sort archivo.txt | uniq</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+uniq" alt="Ejemplo comando uniq">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-head')">
+        <strong>Linux - head:</strong> Muestra las primeras líneas de un archivo.
+      </div>
+      <div id="linux-head" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-head')">×</span>
+        <h3>Comando head</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> head [opciones] [archivo...]</p>
+          <p><strong>Ejemplo:</strong> head -n 20 archivo.log</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+head" alt="Ejemplo comando head">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-tail')">
+        <strong>Linux - tail:</strong> Muestra las últimas líneas de un archivo.
+      </div>
+      <div id="linux-tail" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-tail')">×</span>
+        <h3>Comando tail</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> tail [opciones] [archivo]</p>
+          <p><strong>Ejemplo:</strong> tail -f /var/log/syslog</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+tail" alt="Ejemplo comando tail">
+        </div>
+      </div>
+      
+      <!-- Windows Basic Commands -->
+      <div class="comando" onclick="mostrarImagen('windows-dir')">
+        <strong>Windows - dir:</strong> Muestra el contenido de un directorio.
+      </div>
+      <div id="windows-dir" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-dir')">×</span>
+        <h3>Comando dir</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> dir [unidad:][ruta][nombre] [/opciones]</p>
+          <p><strong>Ejemplo:</strong> dir C:\Windows\*.exe</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+dir" alt="Ejemplo comando dir">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-cd')">
+        <strong>Windows - cd:</strong> Cambia el directorio actual.
+      </div>
+      <div id="windows-cd" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-cd')">×</span>
+        <h3>Comando cd</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> cd [/d] [unidad:][ruta]</p>
+          <p><strong>Ejemplo:</strong> cd C:\Program Files</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+cd+Windows" alt="Ejemplo comando cd Windows">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-md')">
+        <strong>Windows - md:</strong> Crea un nuevo directorio.
+      </div>
+      <div id="windows-md" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-md')">×</span>
+        <h3>Comando md</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> md [unidad:]ruta</p>
+          <p><strong>Ejemplo:</strong> md "C:\Nueva Carpeta"</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+md" alt="Ejemplo comando md">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-rd')">
+        <strong>Windows - rd:</strong> Elimina un directorio vacío.
+      </div>
+      <div id="windows-rd" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-rd')">×</span>
+        <h3>Comando rd</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> rd [unidad:]ruta [/s] [/q]</p>
+          <p><strong>Ejemplo:</strong> rd /s /q "C:\Carpeta a eliminar"</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+rd" alt="Ejemplo comando rd">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-copy')">
+        <strong>Windows - copy:</strong> Copia archivos.
+      </div>
+      <div id="windows-copy" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-copy')">×</span>
+        <h3>Comando copy</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> copy [origen] [destino]</p>
+          <p><strong>Ejemplo:</strong> copy *.txt C:\backup\</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+copy" alt="Ejemplo comando copy">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-move')">
+        <strong>Windows - move:</strong> Mueve archivos.
+      </div>
+      <div id="windows-move" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-move')">×</span>
+        <h3>Comando move</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> move [origen] [destino]</p>
+          <p><strong>Ejemplo:</strong> move archivo.txt C:\destino\</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+move" alt="Ejemplo comando move">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-del')">
+        <strong>Windows - del:</strong> Elimina archivos.
+      </div>
+      <div id="windows-del" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-del')">×</span>
+        <h3>Comando del</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> del [nombre]</p>
+          <p><strong>Ejemplo:</strong> del *.tmp /s /q</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+del" alt="Ejemplo comando del">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-type')">
+        <strong>Windows - type:</strong> Muestra el contenido de un archivo.
+      </div>
+      <div id="windows-type" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-type')">×</span>
+        <h3>Comando type</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> type [archivo]</p>
+          <p><strong>Ejemplo:</strong> type config.ini</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+type" alt="Ejemplo comando type">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-edit')">
+        <strong>Windows - edit:</strong> Abre un editor de texto simple.
+      </div>
+      <div id="windows-edit" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-edit')">×</span>
+        <h3>Comando edit</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> edit [archivo]</p>
+          <p><strong>Ejemplo:</strong> edit script.bat</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+edit" alt="Ejemplo comando edit">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-findstr')">
+        <strong>Windows - findstr:</strong> Busca una cadena de texto en un archivo.
+      </div>
+      <div id="windows-findstr" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-findstr')">×</span>
+        <h3>Comando findstr</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> findstr [opciones] cadena [archivo...]</p>
+          <p><strong>Ejemplo:</strong> findstr "error" *.log</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+findstr" alt="Ejemplo comando findstr">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-sort')">
+        <strong>Windows - sort:</strong> Ordena las líneas de un archivo.
+      </div>
+      <div id="windows-sort" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-sort')">×</span>
+        <h3>Comando sort</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> sort [opciones] [archivo]</p>
+          <p><strong>Ejemplo:</strong> sort /r datos.txt</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+sort+Windows" alt="Ejemplo comando sort Windows">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-more')">
+        <strong>Windows - more:</strong> Muestra el contenido de un archivo de forma paginada.
+      </div>
+      <div id="windows-more" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-more')">×</span>
+        <h3>Comando more</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> more [archivo]</p>
+          <p><strong>Ejemplo:</strong> more largo.txt</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+more" alt="Ejemplo comando more">
+        </div>
       </div>
     </section>
 
-    <!-- Más secciones de categorías aquí -->
-  </main>
+    <section class="categoria">
+      <h2>2. Comandos de Administración de Redes</h2>
+      
+      <!-- Linux Network Commands -->
+      <div class="comando" onclick="mostrarImagen('linux-ifconfig')">
+        <strong>Linux - ifconfig:</strong> Muestra la configuración de la interfaz de red.
+      </div>
+      <div id="linux-ifconfig" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-ifconfig')">×</span>
+        <h3>Comando ifconfig</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> ifconfig [interfaz] [opciones]</p>
+          <p><strong>Ejemplo:</strong> ifconfig eth0</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ifconfig" alt="Ejemplo comando ifconfig">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-route')">
+        <strong>Linux - route:</strong> Muestra la tabla de enrutamiento.
+      </div>
+      <div id="linux-route" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-route')">×</span>
+        <h3>Comando route</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> route [opciones]</p>
+          <p><strong>Ejemplo:</strong> route -n</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+route" alt="Ejemplo comando route">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-ping')">
+        <strong>Linux - ping:</strong> Comprueba la conectividad a un host específico.
+      </div>
+      <div id="linux-ping" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-ping')">×</span>
+        <h3>Comando ping</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> ping [opciones] destino</p>
+          <p><strong>Ejemplo:</strong> ping -c 4 google.com</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ping" alt="Ejemplo comando ping">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-traceroute')">
+        <strong>Linux - traceroute:</strong> Muestra la ruta que toma un paquete de red para llegar a un host específico.
+      </div>
+      <div id="linux-traceroute" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-traceroute')">×</span>
+        <h3>Comando traceroute</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> traceroute [opciones] host</p>
+          <p><strong>Ejemplo:</strong> traceroute example.com</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+traceroute" alt="Ejemplo comando traceroute">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-nslookup')">
+        <strong>Linux - nslookup:</strong> Resuelve nombres de dominio a direcciones IP y viceversa.
+      </div>
+      <div id="linux-nslookup" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-nslookup')">×</span>
+        <h3>Comando nslookup</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> nslookup [opciones] [nombre] [servidor]</p>
+          <p><strong>Ejemplo:</strong> nslookup google.com</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+nslookup" alt="Ejemplo comando nslookup">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('linux-iptables')">
+        <strong>Linux - iptables:</strong> Configura un firewall.
+      </div>
+      <div id="linux-iptables" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-iptables')">×</span>
+        <h3>Comando iptables</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> iptables [opciones] comando [cadenas] [parámetros]</p>
+          <p><strong>Ejemplo:</strong> iptables -A INPUT -p tcp --dport 22 -j ACCEPT</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+iptables" alt="Ejemplo comando iptables">
+        </div>
+      </div>
+      
+      <!-- Windows Network Commands -->
+      <div class="comando" onclick="mostrarImagen('windows-ipconfig')">
+        <strong>Windows - ipconfig:</strong> Muestra la configuración de la interfaz de red.
+      </div>
+      <div id="windows-ipconfig" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-ipconfig')">×</span>
+        <h3>Comando ipconfig</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> ipconfig [opciones]</p>
+          <p><strong>Ejemplo:</strong> ipconfig /all</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ipconfig" alt="Ejemplo comando ipconfig">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-netstat')">
+        <strong>Windows - netstat:</strong> Muestra información sobre las conexiones de red activas.
+      </div>
+      <div id="windows-netstat" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-netstat')">×</span>
+        <h3>Comando netstat</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> netstat [opciones]</p>
+          <p><strong>Ejemplo:</strong> netstat -ano</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+netstat" alt="Ejemplo comando netstat">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-ping')">
+        <strong>Windows - ping:</strong> Comprueba la conectividad a un host específico.
+      </div>
+      <div id="windows-ping" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-ping')">×</span>
+        <h3>Comando ping</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> ping [opciones] destino</p>
+          <p><strong>Ejemplo:</strong> ping -t google.com</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+ping+Windows" alt="Ejemplo comando ping Windows">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-tracert')">
+        <strong>Windows - tracert:</strong> Muestra la ruta que toma un paquete de red para llegar a un host específico.
+      </div>
+      <div id="windows-tracert" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-tracert')">×</span>
+        <h3>Comando tracert</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> tracert [opciones] destino</p>
+          <p><strong>Ejemplo:</strong> tracert example.com</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+tracert" alt="Ejemplo comando tracert">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-nslookup')">
+        <strong>Windows - nslookup:</strong> Resuelve nombres de dominio a direcciones IP y viceversa.
+      </div>
+      <div id="windows-nslookup" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-nslookup')">×</span>
+        <h3>Comando nslookup</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> nslookup [nombre] [servidor]</p>
+          <p><strong>Ejemplo:</strong> nslookup google.com 8.8.8.8</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+nslookup+Windows" alt="Ejemplo comando nslookup Windows">
+        </div>
+      </div>
+      
+      <div class="comando" onclick="mostrarImagen('windows-netsh')">
+        <strong>Windows - netsh:</strong> Configura un firewall.
+      </div>
+      <div id="windows-netsh" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('windows-netsh')">×</span>
+        <h3>Comando netsh</h3>
+        <div class="comando-info">
+          <p><strong>Uso:</strong> netsh [contexto] [subcomando] [parámetros]</p>
+          <p><strong>Ejemplo:</strong> netsh advfirewall set allprofiles state on</p>
+          <img src="https://via.placeholder.com/600x300?text=Ejemplo+comando+netsh" alt="Ejemplo comando netsh">
+        </div>
+      </div>
+    </section>
 
-  <script>
-    // Función para mostrar imagen en línea
-    function mostrarImagen(id, titulo) {
-      // Primero cerramos todas las imágenes abiertas
-      cerrarTodasLasImagenes();
+    <section class="categoria">
+      <h2>3. Comandos de Diagnóstico</h2>
       
-      // Mostramos la imagen seleccionada
-      const elemento = document.getElementById(id);
-      if (elemento) {
-        elemento.style.display = 'block';
-        
-        // Desplazamos la página hasta la imagen
-        elemento.scrollIntoView({behavior: 'smooth'});
-      }
-      
-      // Alternativa: Mostrar en el contenedor flotante
-      // mostrarImagenFlotante(titulo, 'https://via.placeholder.com/300x200?text=' + encodeURIComponent(titulo));
-    }
-    
-    // Función para cerrar imagen en línea
-    function cerrarImagen(id) {
-      const elemento = document.getElementById(id);
-      if (elemento) {
-        elemento.style.display = 'none';
-      }
-    }
-    
-    // Función para cerrar todas las imágenes
-    function cerrarTodasLasImagenes() {
-      const imagenes = document.querySelectorAll('.imagen-comando');
-      imagenes.forEach(img => {
-        img.style.display = 'none';
-      });
-    }
-    
-    // Función para mostrar imagen en contenedor flotante
-    function mostrarImagenFlotante(titulo, urlImagen) {
-      const contenedor = document.getElementById('contenedor-imagen-flotante');
-      const imagenContenedor = document.getElementById('imagen-flotante');
-      
-      imagenContenedor.innerHTML = `
-        <h3>${titulo}</h3>
-        <img src="${urlImagen}" alt="${titulo}">
-        <p>Descripción detallada del comando...</p>
-      `;
-      
-      contenedor.style.display = 'block';
-    }
-    
-    // Función para cerrar imagen flotante
-    function cerrarImagenFlotante() {
-      document.getElementById('contenedor-imagen-flotante').style.display = 'none';
-    }
-  </script>
-</body>
-</html>
+      <!-- Linux Diagnostic Commands -->
+      <div class="comando" onclick="mostrarImagen('linux-dmesg')">
+        <strong>Linux - dmes
