@@ -31,12 +31,24 @@
       margin-bottom: 10px;
       padding: 10px;
     }
+    .comando a {
+      text-decoration: none;
+      color: #004d99;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 5px;
+    }
     .categoria {
       margin-top: 40px;
     }
     img {
       max-width: 100%;
       margin-top: 10px;
+    }
+    .detalle {
+      margin-top: 60px;
+      padding-top: 20px;
+      border-top: 2px dashed #aaa;
     }
   </style>
 </head>
@@ -48,65 +60,49 @@
     <section class="categoria">
       <h2>1. Comandos Básicos</h2>
       <div class="comando">
-        <strong>Linux - ls:</strong> Muestra el contenido de un directorio.
+        <a href="#ls">Linux - ls</a>: Muestra el contenido de un directorio.
       </div>
       <div class="comando">
-        <strong>Linux - cd:</strong> Cambia el directorio actual.
+        <a href="#cd">Linux - cd</a>: Cambia el directorio actual.
       </div>
       <div class="comando">
-        <strong>Linux - mkdir:</strong> Crea un nuevo directorio.
+        <a href="#mkdir">Linux - mkdir</a>: Crea un nuevo directorio.
       </div>
       <div class="comando">
-        <strong>Linux - rmdir:</strong> Elimina un directorio vacío.
-      </div>
-      <!-- Agrega el resto de comandos aquí de forma similar -->
-    </section>
-
-    <section class="categoria">
-      <h2>2. Comandos de Administración de Redes</h2>
-      <div class="comando">
-        <strong>Linux - ifconfig:</strong> Muestra la configuración de la interfaz de red.
-      </div>
-      <div class="comando">
-        <strong>Windows - ipconfig:</strong> Muestra la configuración de la interfaz de red.
+        <a href="#rmdir">Linux - rmdir</a>: Elimina un directorio vacío.
       </div>
     </section>
 
-    <section class="categoria">
-      <h2>3. Comandos de Diagnóstico</h2>
-      <div class="comando">
-        <strong>Linux - dmesg:</strong> Muestra los mensajes del kernel.
-      </div>
-      <div class="comando">
-        <strong>Windows - eventvwr:</strong> Muestra el Visor de eventos.
-      </div>
+    <!-- Sección de detalle de cada comando -->
+    <section class="detalle" id="ls">
+      <h3>Linux - ls</h3>
+      <p><strong>Descripción:</strong> Muestra el contenido de un directorio.</p>
+      <p><strong>Ejemplo:</strong> <code>ls -l</code> muestra el contenido con detalles como permisos y tamaño.</p>
+      <img src="imagenes/ls.png" alt="Ejemplo comando ls">
     </section>
 
-    <section class="categoria">
-      <h2>4. Comandos de Gestión de Archivos</h2>
-      <div class="comando">
-        <strong>Linux - cp:</strong> Copia archivos.
-      </div>
-      <div class="comando">
-        <strong>Windows - copy:</strong> Copia archivos.
-      </div>
+    <section class="detalle" id="cd">
+      <h3>Linux - cd</h3>
+      <p><strong>Descripción:</strong> Cambia el directorio actual.</p>
+      <p><strong>Ejemplo:</strong> <code>cd /home/usuario</code> te lleva al directorio del usuario.</p>
     </section>
 
-    <section class="categoria">
-      <h2>5. Comandos de Administración de Usuarios y Grupos</h2>
-      <div class="comando">
-        <strong>Linux - useradd:</strong> Crea un nuevo usuario.
-      </div>
-      <div class="comando">
-        <strong>Windows - net user:</strong> Crea, modifica y elimina usuarios.
-      </div>
+    <section class="detalle" id="mkdir">
+      <h3>Linux - mkdir</h3>
+      <p><strong>Descripción:</strong> Crea un nuevo directorio.</p>
+      <p><strong>Ejemplo:</strong> <code>mkdir nueva_carpeta</code> crea una carpeta llamada "nueva_carpeta".</p>
+    </section>
+
+    <section class="detalle" id="rmdir">
+      <h3>Linux - rmdir</h3>
+      <p><strong>Descripción:</strong> Elimina un directorio vacío.</p>
+      <p><strong>Ejemplo:</strong> <code>rmdir carpeta_vacia</code> elimina la carpeta si no tiene archivos dentro.</p>
     </section>
 
     <section class="categoria">
       <h2>📸 Cómo agregar imágenes</h2>
       <p>Para insertar una imagen en un comando, usa la siguiente etiqueta:</p>
       <pre>&lt;img src="imagenes/nombre-de-la-imagen.png" alt="Descripción"&gt;</pre>
-      <p>Asegúrate de que la imagen esté en una carpeta llamada <code>imagenes</code> dentro de tu proyecto.</p>
       <p>Ejemplo real:</p>
       <img src="imagenes/ejemplo-comando-ls.png" alt="Ejemplo comando ls">
     </section>
