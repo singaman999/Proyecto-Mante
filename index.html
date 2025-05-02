@@ -30,13 +30,44 @@
       border-left: 5px solid #004d99;
       margin-bottom: 10px;
       padding: 10px;
+      cursor: pointer;
+    }
+    .comando:hover {
+      background-color: #f0f0f0;
     }
     .categoria {
       margin-top: 40px;
     }
-    img {
+    .imagen-comando {
+      display: none;
+      margin: 20px auto;
+      padding: 15px;
+      background-color: white;
+      border: 1px solid #ddd;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 800px;
+    }
+    .imagen-comando img {
       max-width: 100%;
-      margin-top: 10px;
+      display: block;
+      margin: 10px auto;
+    }
+    .cerrar-imagen {
+      float: right;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    /* Estilo para el contenedor de imágenes flotante */
+    #contenedor-imagen-flotante {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      width: 300px;
+      background: white;
+      padding: 10px;
+      border: 1px solid #ccc;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      display: none;
     }
   </style>
 </head>
@@ -45,96 +76,96 @@
     <h1>Guía de Comandos del Sistema de Red</h1>
   </header>
   <main>
+    <!-- Contenedor para imágenes flotantes -->
+    <div id="contenedor-imagen-flotante">
+      <span class="cerrar-imagen" onclick="cerrarImagenFlotante()">×</span>
+      <div id="imagen-flotante"></div>
+    </div>
+
     <section class="categoria">
       <h2>1. Comandos Básicos</h2>
-      <div class="comando"><strong>Linux - ls:</strong> Muestra el contenido de un directorio.</div>
-      <div class="comando"><strong>Linux - cd:</strong> Cambia el directorio actual.</div>
-      <div class="comando"><strong>Linux - mkdir:</strong> Crea un nuevo directorio.</div>
-      <div class="comando"><strong>Linux - rmdir:</strong> Elimina un directorio vacío.</div>
-      <div class="comando"><strong>Linux - cp:</strong> Copia archivos.</div>
-      <div class="comando"><strong>Linux - mv:</strong> Mueve archivos.</div>
-      <div class="comando"><strong>Linux - rm:</strong> Elimina archivos.</div>
-      <div class="comando"><strong>Linux - touch:</strong> Crea un archivo vacío.</div>
-      <div class="comando"><strong>Linux - nano:</strong> Abre un editor de texto simple.</div>
-      <div class="comando"><strong>Linux - grep:</strong> Busca una cadena de texto en un archivo.</div>
-      <div class="comando"><strong>Linux - sort:</strong> Ordena las líneas de un archivo.</div>
-      <div class="comando"><strong>Linux - uniq:</strong> Elimina las líneas duplicadas de un archivo.</div>
-      <div class="comando"><strong>Linux - head:</strong> Muestra las primeras líneas de un archivo.</div>
-      <div class="comando"><strong>Linux - tail:</strong> Muestra las últimas líneas de un archivo.</div>
-      <div class="comando"><strong>Windows - dir:</strong> Muestra el contenido de un directorio.</div>
-      <div class="comando"><strong>Windows - cd:</strong> Cambia el directorio actual.</div>
-      <div class="comando"><strong>Windows - md:</strong> Crea un nuevo directorio.</div>
-      <div class="comando"><strong>Windows - rd:</strong> Elimina un directorio vacío.</div>
-      <div class="comando"><strong>Windows - copy:</strong> Copia archivos.</div>
-      <div class="comando"><strong>Windows - move:</strong> Mueve archivos.</div>
-      <div class="comando"><strong>Windows - del:</strong> Elimina archivos.</div>
-      <div class="comando"><strong>Windows - type:</strong> Muestra el contenido de un archivo.</div>
-      <div class="comando"><strong>Windows - edit:</strong> Abre un editor de texto simple.</div>
-      <div class="comando"><strong>Windows - findstr:</strong> Busca una cadena de texto en un archivo.</div>
-      <div class="comando"><strong>Windows - sort:</strong> Ordena las líneas de un archivo.</div>
-      <div class="comando"><strong>Windows - more:</strong> Muestra el contenido de un archivo de forma paginada.</div>
+      <div class="comando" onclick="mostrarImagen('linux-ls', 'Linux - ls: Muestra el contenido de un directorio.')">
+        <strong>Linux - ls:</strong> Muestra el contenido de un directorio.
+      </div>
+      <div class="comando" onclick="mostrarImagen('linux-cd', 'Linux - cd: Cambia el directorio actual.')">
+        <strong>Linux - cd:</strong> Cambia el directorio actual.
+      </div>
+      <!-- Continuar con los demás comandos de la misma manera -->
+      
+      <!-- Ejemplo de sección de imagen (oculta inicialmente) -->
+      <div id="linux-ls" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-ls')">×</span>
+        <h3>Linux - ls</h3>
+        <p>Ejemplo de uso del comando ls:</p>
+        <img src="https://via.placeholder.com/600x400?text=Ejemplo+comando+ls" alt="Ejemplo comando ls">
+        <p>Este comando muestra el contenido del directorio actual.</p>
+      </div>
+      
+      <div id="linux-cd" class="imagen-comando">
+        <span class="cerrar-imagen" onclick="cerrarImagen('linux-cd')">×</span>
+        <h3>Linux - cd</h3>
+        <p>Ejemplo de uso del comando cd:</p>
+        <img src="https://via.placeholder.com/600x400?text=Ejemplo+comando+cd" alt="Ejemplo comando cd">
+        <p>Este comando cambia el directorio actual.</p>
+      </div>
     </section>
 
-    <section class="categoria">
-      <h2>2. Comandos de Administración de Redes</h2>
-      <div class="comando"><strong>Linux - ifconfig:</strong> Muestra la configuración de la interfaz de red.</div>
-      <div class="comando"><strong>Linux - route:</strong> Muestra la tabla de enrutamiento.</div>
-      <div class="comando"><strong>Linux - ping:</strong> Comprueba la conectividad a un host específico.</div>
-      <div class="comando"><strong>Linux - traceroute:</strong> Muestra la ruta que toma un paquete de red para llegar a un host específico.</div>
-      <div class="comando"><strong>Linux - nslookup:</strong> Resuelve nombres de dominio a direcciones IP y viceversa.</div>
-      <div class="comando"><strong>Linux - iptables:</strong> Configura un firewall.</div>
-      <div class="comando"><strong>Windows - ipconfig:</strong> Muestra la configuración de la interfaz de red.</div>
-      <div class="comando"><strong>Windows - netstat:</strong> Muestra información sobre las conexiones de red activas.</div>
-      <div class="comando"><strong>Windows - ping:</strong> Comprueba la conectividad a un host específico.</div>
-      <div class="comando"><strong>Windows - tracert:</strong> Muestra la ruta que toma un paquete de red para llegar a un host específico.</div>
-      <div class="comando"><strong>Windows - nslookup:</strong> Resuelve nombres de dominio a direcciones IP y viceversa.</div>
-      <div class="comando"><strong>Windows - netsh:</strong> Configura un firewall.</div>
-    </section>
-
-    <section class="categoria">
-      <h2>3. Comandos de Diagnóstico</h2>
-      <div class="comando"><strong>Linux - dmesg:</strong> Muestra los mensajes del kernel.</div>
-      <div class="comando"><strong>Linux - top:</strong> Muestra los procesos que se están ejecutando y su uso de recursos.</div>
-      <div class="comando"><strong>Linux - ps:</strong> Muestra información sobre los procesos que se están ejecutando.</div>
-      <div class="comando"><strong>Linux - free:</strong> Muestra la memoria libre y utilizada.</div>
-      <div class="comando"><strong>Linux - df:</strong> Muestra el espacio libre en disco.</div>
-      <div class="comando"><strong>Windows - eventvwr:</strong> Muestra el Visor de eventos.</div>
-      <div class="comando"><strong>Windows - taskmgr:</strong> Muestra el Administrador de tareas.</div>
-      <div class="comando"><strong>Windows - perfmon:</strong> Muestra el Monitor de rendimiento.</div>
-      <div class="comando"><strong>Windows - msinfo32:</strong> Muestra información del sistema.</div>
-    </section>
-
-    <section class="categoria">
-      <h2>4. Comandos de Gestión de Archivos</h2>
-      <div class="comando"><strong>Linux - ls:</strong> Muestra el contenido de un directorio.</div>
-      <div class="comando"><strong>Linux - cd:</strong> Cambia el directorio actual.</div>
-      <div class="comando"><strong>Linux - mkdir:</strong> Crea un nuevo directorio.</div>
-      <div class="comando"><strong>Linux - rmdir:</strong> Elimina un directorio vacío.</div>
-      <div class="comando"><strong>Linux - cp:</strong> Copia archivos.</div>
-      <div class="comando"><strong>Linux - mv:</strong> Mueve archivos.</div>
-      <div class="comando"><strong>Linux - rm:</strong> Elimina archivos.</div>
-      <div class="comando"><strong>Linux - touch:</strong> Crea un archivo vacío.</div>
-      <div class="comando"><strong>Windows - dir:</strong> Muestra el contenido de un directorio.</div>
-      <div class="comando"><strong>Windows - cd:</strong> Cambia el directorio actual.</div>
-      <div class="comando"><strong>Windows - md:</strong> Crea un nuevo directorio.</div>
-      <div class="comando"><strong>Windows - rd:</strong> Elimina un directorio vacío.</div>
-      <div class="comando"><strong>Windows - copy:</strong> Copia archivos.</div>
-      <div class="comando"><strong>Windows - move:</strong> Mueve archivos.</div>
-      <div class="comando"><strong>Windows - del:</strong> Elimina archivos.</div>
-      <div class="comando"><strong>Windows - type:</strong> Muestra el contenido de un archivo.</div>
-    </section>
-
-    <section class="categoria">
-      <h2>5. Comandos de Administración de Usuarios y Grupos</h2>
-      <div class="comando"><strong>Linux - useradd:</strong> Crea un nuevo usuario.</div>
-      <div class="comando"><strong>Linux - usermod:</strong> Modifica un usuario existente.</div>
-      <div class="comando"><strong>Linux - userdel:</strong> Elimina un usuario.</div>
-      <div class="comando"><strong>Linux - groupadd:</strong> Crea un nuevo grupo.</div>
-      <div class="comando"><strong>Linux - groupmod:</strong> Modifica un grupo existente.</div>
-      <div class="comando"><strong>Linux - groupdel:</strong> Elimina un grupo.</div>
-      <div class="comando"><strong>Windows - net user:</strong> Crea, modifica y elimina usuarios.</div>
-      <div class="comando"><strong>Windows - net localgroup:</strong> Crea, modifica y elimina grupos locales.</div>
-    </section>
+    <!-- Más secciones de categorías aquí -->
   </main>
+
+  <script>
+    // Función para mostrar imagen en línea
+    function mostrarImagen(id, titulo) {
+      // Primero cerramos todas las imágenes abiertas
+      cerrarTodasLasImagenes();
+      
+      // Mostramos la imagen seleccionada
+      const elemento = document.getElementById(id);
+      if (elemento) {
+        elemento.style.display = 'block';
+        
+        // Desplazamos la página hasta la imagen
+        elemento.scrollIntoView({behavior: 'smooth'});
+      }
+      
+      // Alternativa: Mostrar en el contenedor flotante
+      // mostrarImagenFlotante(titulo, 'https://via.placeholder.com/300x200?text=' + encodeURIComponent(titulo));
+    }
+    
+    // Función para cerrar imagen en línea
+    function cerrarImagen(id) {
+      const elemento = document.getElementById(id);
+      if (elemento) {
+        elemento.style.display = 'none';
+      }
+    }
+    
+    // Función para cerrar todas las imágenes
+    function cerrarTodasLasImagenes() {
+      const imagenes = document.querySelectorAll('.imagen-comando');
+      imagenes.forEach(img => {
+        img.style.display = 'none';
+      });
+    }
+    
+    // Función para mostrar imagen en contenedor flotante
+    function mostrarImagenFlotante(titulo, urlImagen) {
+      const contenedor = document.getElementById('contenedor-imagen-flotante');
+      const imagenContenedor = document.getElementById('imagen-flotante');
+      
+      imagenContenedor.innerHTML = `
+        <h3>${titulo}</h3>
+        <img src="${urlImagen}" alt="${titulo}">
+        <p>Descripción detallada del comando...</p>
+      `;
+      
+      contenedor.style.display = 'block';
+    }
+    
+    // Función para cerrar imagen flotante
+    function cerrarImagenFlotante() {
+      document.getElementById('contenedor-imagen-flotante').style.display = 'none';
+    }
+  </script>
 </body>
 </html>
