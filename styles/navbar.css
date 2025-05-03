@@ -30,3 +30,48 @@
     background: #333;
     color: #fff;
 }
+/* Menú hamburguesa (solo mobile) */
+.menu-toggle {
+    display: none; /* Oculto en desktop */
+    cursor: pointer;
+    padding: 15px;
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 1001;
+}
+
+.bar {
+    width: 25px;
+    height: 3px;
+    background: #ff9900;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    #dynamic-navbar {
+        transform: translateX(-100%); /* Oculta la barra */
+        transition: transform 0.3s ease;
+    }
+
+    #dynamic-navbar.active {
+        transform: translateX(0); /* Muestra la barra */
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+
+    /* Animación del botón hamburguesa */
+    .menu-toggle.active .bar:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+    }
+    .menu-toggle.active .bar:nth-child(2) {
+        opacity: 0;
+    }
+    .menu-toggle.active .bar:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+    }
+}
