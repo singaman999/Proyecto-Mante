@@ -1,0 +1,25 @@
+// navbar.js
+document.addEventListener('DOMContentLoaded', () => {
+    // Crear la estructura de la barra
+    const navbar = document.createElement('div');
+    navbar.id = 'navbar';
+    navbar.innerHTML = `
+        <a href="#presentacion" class="nav-button">Presentación</a>
+        <a href="#introduccion" class="nav-button">Introducción</a>
+        <a href="#descripcion" class="nav-button">Descripción del Proyecto</a>
+        <a href="#comandos" class="nav-button">Guía de Comandos</a>
+    `;
+
+    // Insertar la barra debajo del título (o donde prefieras)
+    const header = document.querySelector('h1'); // Ajusta el selector según tu HTML
+    header?.insertAdjacentElement('afterend', navbar);
+
+    // Scroll suave al hacer clic (opcional)
+    document.querySelectorAll('.nav-button').forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const targetId = button.getAttribute('href');
+            document.querySelector(targetId)?.scrollIntoView({ behavior: 'smooth' });
+        });
+    });
+});
