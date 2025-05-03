@@ -1,0 +1,32 @@
+#dynamic-navbar {
+    background: #1a1a1a; /* Fondo oscuro */
+    padding: 15px 20px;
+    position: fixed; /* Fija a la izquierda */
+    left: 0;
+    top: 0;
+    height: 100vh; /* Altura completa */
+    width: 250px; /* Ancho de la barra */
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    flex-direction: column; /* Botones verticales */
+    gap: 10px;
+}
+
+.nav-button {
+    color: #ff9900; /* Letras naranjas */
+    text-decoration: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    transition: all 0.3s;
+    font-family: 'Arial', sans-serif;
+}
+
+.nav-button:hover {
+    background: #333;
+    color: #fff;
+}
