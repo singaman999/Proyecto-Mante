@@ -1,7 +1,7 @@
-
 document.addEventListener('DOMContentLoaded', () => {
+    // 1. Crear la barra de navegación
     const navbar = document.createElement('nav');
-    navbar.id = 'dynamic-navbar';
+    navbar.id = 'navbar-left';
     navbar.innerHTML = `
         <div class="nav-container">
             <a href="#presentacion" class="nav-button">Presentación</a>
@@ -11,9 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
         </div>
     `;
 
-    const header = document.querySelector('h1') || document.body;
-    header.insertAdjacentElement('afterend', navbar);
+    // 2. Insertar la barra al inicio del body
+    document.body.insertAdjacentElement('afterbegin', navbar);
 
+    // 3. Scroll suave al hacer clic
     navbar.querySelectorAll('.nav-button').forEach(button => {
         button.addEventListener('click', (e) => {
             e.preventDefault();
