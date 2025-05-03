@@ -1,3 +1,15 @@
+// Crear botón hamburguesa
+const toggleButton = document.createElement('div');
+toggleButton.className = 'menu-toggle';
+toggleButton.innerHTML = '<div class="bar"></div><div class="bar"></div><div class="bar"></div>';
+document.body.prepend(toggleButton);
+
+// Toggle del menú
+toggleButton.addEventListener('click', () => {
+    toggleButton.classList.toggle('active');
+    document.getElementById('dynamic-navbar').classList.toggle('active');
+});
+
 document.addEventListener('DOMContentLoaded', () => {
     const navbar = document.createElement('nav');
     navbar.id = 'dynamic-navbar';
