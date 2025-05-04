@@ -7,9 +7,8 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><strong>Configuración y soporte a redes de comunicación y sistemas operativos.</strong></p>
             <p><strong>CTP Platanares</strong></p>
             <p><strong>Administración y Soporte a las Computadoras</strong></p>
-            <div class="contact-info">
-                <p><janchiav@ctpplatanares.ed.cr> / <ecorderoa@ctpplatanares.ed.cr></p>
-            </div>
+           <div class="contact-info">
+                <p>&lt;janchiav@ctpplatanares.ed.cr&gt; / &lt;ecorderoa@ctpplatanares.ed.cr&gt;</p>
         `,
         descripcion: `
             <h2>Descripción del Proyecto</h2>
