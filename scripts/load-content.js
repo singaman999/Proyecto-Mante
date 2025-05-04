@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `,
         metodologia: `
             <h2>Metodología</h2>
-            <p>Se recopilaron los comandos de red más utilizados mediante las indicaciones dadas. Luego, se diseñó una guía educativa con explicaciones claras, ejemplos visuales.</p>
+            <p>Se recopilaron los comandos de red más utilizados mediante las indicaciones dadas. Luego, se diseñó una guía educativa con explicaciones claras, ejemplos visuales. Finalmente, se creó la página web donde se instaló la guía. </p>
         `,
         resultados: `
             <h2>Resultados</h2>
