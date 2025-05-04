@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <p><strong>CTP Platanares</strong></p>
             <p><strong>Administración y Soporte a las Computadoras</strong></p>
             <div class="contact-info">
-                <p><janchiav@ctpplatanares.ed.cr ecorderoa@ctpplatanares.ed.cr></p>
+                <p><janchiav@ctpplatanares.ed.cr> / <ecorderoa@ctpplatanares.ed.cr></p>
             </div>
         `,
         descripcion: `
