@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 <li>Mejora comprobada en el aprendizaje</li>
             </ul>
             <h3>Conclusiones</h3>
-            <p>El uso de una guía interactiva facilita el aprendizaje de conceptos técnicos complejos.</p>
+            <p>El uso de una guía interactiva facilita el aprendizaje de conceptos técnicos complejos como los comandos de red y otros tipos de comandos. Además da una idea clara y proporciona ayuda para desarrollar diferentes tipos de trabajos mediante el conocimiento adquirido de la guía.</p>
         `
     };
 
