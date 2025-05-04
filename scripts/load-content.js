@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', () => {
         `,
         descripcion: `
             <h2>Descripción del Proyecto</h2>
-            <p>Resumen: Este proyecto busca crear una guía digital e interactiva que enseñe de forma clara y práctica el uso de comandos básicos de red en sistemas operativos tipo Linux y Windows.</p>
+            <p>Este proyecto busca crear una guía digital e interactiva que enseñe de forma clara y práctica el uso de comandos básicos de red en sistemas operativos tipo Linux y Windows. La guía incluirá explicaciones, ejemplos, explicaciones de los argumentos para dichos comandos.</p>
             <h3>Objetivos:</h3>
             <ul>
                 <li>Enseñar los comandos básicos esenciales para configurar desde la terminal.</li>
