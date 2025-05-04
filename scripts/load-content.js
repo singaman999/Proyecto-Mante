@@ -3,10 +3,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const contenido = {
         presentacion: `
             <h1>Presentación</h1>
-            <h2>Jefferson Anchia Vargas y Emanuel Cordero Arias 12-3</h2>
+            <h2>Jefferson Anchia Vargas y Emanuel Cordero Arias</h2>
             <p><strong>Configuración y soporte a redes de comunicación y sistemas operativos.</strong></p>
             <p><strong>CTP Platanares</strong></p>
             <p><strong>Administración y Soporte a las Computadoras</strong></p>
+            <p><strong>12-3</strong></p>
            <div class="contact-info">
                 <p><strong> janchiav@ctpplatanares.ed.cr ecorderoa@ctpplatanares.ed.cr </strong></p>
         `,
