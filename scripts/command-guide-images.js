@@ -35,7 +35,7 @@ document.addEventListener('DOMContentLoaded', () => {
             imgContainer.className = 'command-image-container';
             
             imgContainer.innerHTML = `
-                <img src="img/comandos/${commandMap[foundCommand]}" 
+                <img src="imagenes/${commandMap[foundCommand]}" 
                      alt="Ejemplo de ${foundCommand}" 
                      class="command-image">
                 <p class="image-caption">Ejemplo práctico: <code>${foundCommand}</code></p>
